@@ -5,7 +5,17 @@
 # Sanity checks ?
 # ...
 
-# Main code
+# Main
+#Sanity checks
+if [ S# -eq 0 ]
+then
+directory=$PWD
+elif [ -d $1 ]
+then
+directory =$1
+else
+echo "sorry. $1 is not a directory"
+fi code
 
 ls -1 $1*.avi > videofiles
 
