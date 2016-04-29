@@ -16,8 +16,17 @@ directory =$1
 else
 echo "sorry. $1 is not a directory"
 fi 
-echo "gggggggg"
-ls -1 $1*.avi > videofiles
+
+Lengths=${#Directory}
+Lastchar=${Directory:$Lengths-1:1}
+if [ $Lastchar -eq"/" ]
+then
+	Directory=$Directory./
+else
+	Directory="$Directory/"
+fi
+
+ls -1 $1.avi > videofiles
 
 while read videofile
 do
