@@ -12,28 +12,29 @@ then
 directory=$PWD
 elif [ -d $1 ]
 then
-directory =$1
+directory=$1
 else
 echo "sorry. $1 is not a directory"
 fi 
 
-Lengths=${#Directory}
-Lastchar=${Directory:$Lengths-1:1}
-if [ $Lastchar -eq"/" ]
+Lengths=${#directory}
+Lastchar=${directory:$Lengths-1:1}
+if [ "$Lastchar" = "/" ]
 then
-	Directory=$Directory./
+	directory=$directory
 else
-	Directory="$Directory/"
+	directory="$directory/"
 fi
 
-ls -1 $1.avi > videofiles
+ls -1 $directory*.avi > videofiles
 
 while read videofile
 do
 	lengthname=${#videofile}
 	namefile=${videofile: -3}
 	mencoder $videofile -o namefile.mp4 -oac mp3lame -ovc lavc
-
+	
 done < videofiles
 rm videofiles
+	
 exit 0
