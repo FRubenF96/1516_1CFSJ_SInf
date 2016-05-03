@@ -1,30 +1,36 @@
-#!/bin/bash
-
-# Script to convert all video files from a directory (parameter) into mp4 format file
-
-# Sanity checks ?
-# ...
-
+#!/bin/bash 
 # Main
+<<<<<<< HEAD
 #!/bin/bash
-echo "1) Transforma video"
-echo "2) Renombrar video"
+set -x
+echo "1) Mencoder video"
+echo "2) Rename video"
 
 echo "Elija opcion:"
 read opcion
 case $opcion in
 
-1 ) if [ $# -eq 0 ]
-	then
-	directory=$PWD
-	elif [ -d $1 ]
-	then
-	directory =$1
-	else
-	echo "sorry. $1 is not a directory"
+1 )
+if [ $# -eq 0 ]
+ then
+ directory=$PWD
+ elif [ -d $1 ]
+ then
+ directory =$1
+ else
+ echo "sorry. $1 is not a directory"
 fi 
 
-ls -1 $1*.avi > videofiles
+Lengths=${#directory}
+Lastchar=${directory:$Lengths-1:1}
+if [ "$Lastchar" = "/" ]
+then
+	directory=$directory
+else
+	directory="$directory/"
+fi
+
+ls -1 $directory*.avi > videofiles
 
 while read videofile
 	do
@@ -46,5 +52,7 @@ mv namefile.mp4 $Name
 exit 0
 ;;
 
-* ) echo "Opciones de 1 a 2 solamente";;
-esac 
+* ) echo "Only 1-2 options";;
+esac
+set +x
+exit 0
