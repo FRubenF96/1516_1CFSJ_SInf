@@ -12,7 +12,7 @@ if [ $# -eq 0 ]
  directory=$PWD
  elif [ -d $1 ]
  then
- directory =$1
+ directory=$1
  else
  echo "sorry. $1 is not a directory"
 fi 
