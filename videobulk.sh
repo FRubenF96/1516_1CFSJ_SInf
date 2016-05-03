@@ -1,9 +1,8 @@
 #!/bin/bash
-set -x
 echo "1) Mencoder video"
 echo "2) Rename video"
 
-echo "Elija opcion:"
+echo "Choose options:"
 read opcion
 case $opcion in
 
@@ -48,5 +47,4 @@ exit 0
 
 * ) echo "Only 1-2 options";;
 esac
-set +x
 exit 0
