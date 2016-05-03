@@ -1,6 +1,7 @@
 #!/bin/bash 
 # Main
  #Sanity checks
+ set -x
 if [ $# -eq 0 ]
  then
  directory=$PWD
@@ -30,5 +31,5 @@ do
 	
 done < videofiles
 rm videofiles
-	
+set +x
 exit 0
