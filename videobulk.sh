@@ -1,6 +1,3 @@
-#!/bin/bash 
-# Main
-<<<<<<< HEAD
 #!/bin/bash
 set -x
 echo "1) Mencoder video"
@@ -42,9 +39,6 @@ done < videofiles
 rm videofiles
 exit 0
 ;;
-
-
-
 
 2 ) read Name
 Name=$Name".mp4"
